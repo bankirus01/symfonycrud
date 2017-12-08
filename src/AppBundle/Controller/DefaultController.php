@@ -89,7 +89,7 @@ class DefaultController extends Controller
             $em->persist($article);
             $em->flush();
 
-            return $this->redirectToRoute('entity_edit', array('id' => $id));
+            return $this->redirectToRoute('article_index', array('id' => $id));
         }
 
         return $this->render('entity/edit.html.twig', array('article' => $article,
