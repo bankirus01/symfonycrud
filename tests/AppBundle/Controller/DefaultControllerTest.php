@@ -13,14 +13,14 @@ class DefaultControllerTest extends WebTestCase
         $crawler = $client->request('GET', '/article');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertContains('Entities list', $crawler->filter('#container h1')->text());
+        $this->assertTrue($client->getResponse()->isOk());
     }
 
 
     public function testCreateAction()
     {
         $client = static::createClient();
-        $crawler = $client->request('GET', '/article/new');
+        $crawler = $client->request('GET', '/article/create');
         $Nametest = $crawler->filter('div#article > div > label')->text();
         $this->assertContains('Name', $Nametest); //ok
         $descriptionTest = $crawler->filter('div#article > div > label')
