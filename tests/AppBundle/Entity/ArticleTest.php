@@ -15,7 +15,7 @@ class ArticleTest extends TestCase
 
     public function testName()
     {
-        $nameTest = 'Test 1';
+        $nameTest = 'Testing';
         $testArticle = new Article();
         $testArticle->setName($nameTest);
         $this->assertEquals($nameTest, $testArticle->getName());
@@ -23,7 +23,7 @@ class ArticleTest extends TestCase
 
     public function testDescription()
     {
-        $DescriptionTest = 'Test 1';
+        $DescriptionTest = 'Testing';
         $testArticle = new Article();
         $testArticle->setDescription($DescriptionTest);
         $this->assertEquals($DescriptionTest, $testArticle->getDescription());

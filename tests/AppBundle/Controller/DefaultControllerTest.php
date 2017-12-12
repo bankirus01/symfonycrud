@@ -13,14 +13,14 @@ class DefaultControllerTest extends WebTestCase
         $crawler = $client->request('GET', '/article');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertContains('Welcome to Symfony', $crawler->filter('#container h1')->text());
+        $this->assertContains('Entities list', $crawler->filter('#container h1')->text());
     }
 
 
     public function testCreateAction()
     {
         $client = static::createClient();
-        $crawler = $client->request('GET', '/article/create');
+        $crawler = $client->request('GET', '/article/new');
         $Nametest = $crawler->filter('div#article > div > label')->text();
         $this->assertContains('Name', $Nametest); //ok
         $descriptionTest = $crawler->filter('div#article > div > label')
@@ -32,12 +32,12 @@ class DefaultControllerTest extends WebTestCase
             ->text();
         $this->assertContains('Created at', $createdAtTest);
         $form = $crawler->selectButton('Submit')->form();
-        $form['article[name]'] = 'hello test';
-        $form['article[description]'] = 'hello test';
+        $form['article[name]'] = 'Andy';
+        $form['article[description]'] = 'Test';
         $client->submit($form);
         $crawler = $client->request('GET', '/article');
-        $this->assertContains('hello test', $crawler->filter('body > ul > li')->text());
-        $this->assertContains('hello test', $crawler->filter('body > ul > li')->text());
+        $this->assertContains('Andy', $crawler->filter('body > ul > li')->text());
+        $this->assertContains('Test', $crawler->filter('body > ul > li')->text());
     }
 
     public function testUpdateAction()
@@ -49,8 +49,8 @@ class DefaultControllerTest extends WebTestCase
             ->link();
         $crawler = $client->click($link);
         $form = $crawler->selectButton('Submit')->form();
-        $form['article[name]'] = 'change test';
-        $form['article[description]'] = 'change test';
+        $form['article[name]'] = 'AndyP';
+        $form['article[description]'] = 'Chtest';
         $client->submit($form);
         $this->assertTrue($client->getResponse()->isRedirect('/article'));
     }
