@@ -8,7 +8,7 @@ services:
 
 
 before_install:
-  - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
+  #- mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
 
 before_script:
     #- psql -c 'create database travis_ci_test;' -U postgres
@@ -19,7 +19,7 @@ before_script:
 
 test:
   adapter: mysql2
-  database: myapp_test
+  database: Article_test
   username: travis
   encoding: utf8
 
