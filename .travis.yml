@@ -12,14 +12,14 @@ before_install:
 
 before_script:
     #- psql -c 'create database travis_ci_test;' -U postgres
-  - COMPOSER_ROOT_VERSION=dev-master composer --prefer-source --dev install
+  - COMPOSER_ROOT_VERSION=master composer --prefer-source install
   - bin/console doctrine:database:create
   - bin/console doctrine:schema:update --force
   - bin/console doctrine:fixtures:load -q
 
 test:
   adapter: mysql2
-  database: Article_test
+  database: ArticleTest
   username: travis
   encoding: utf8
 
