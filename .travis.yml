@@ -8,7 +8,7 @@ services:
 
 
 before_install:
-  #- mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
 
 before_script:
     #- psql -c 'create database travis_ci_test;' -U postgres
@@ -17,12 +17,11 @@ before_script:
   - bin/console doctrine:schema:update --force
   #- bin/console doctrine:fixtures:load -q
 
-#test:
-# adapter: mysql2
-# database: ArticleTest
-# username: travis
-# encoding: utf8
+test:
+ adapter: mysql2
+ database: ArticleTest
+ username: travis
+ encoding: utf8
 
 script: vendor/bin/phpunit
 
-dist: precise
