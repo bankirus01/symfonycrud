@@ -16,7 +16,7 @@ class DefaultControllerTest extends WebTestCase
         $this->assertTrue($client->getResponse()->isOk());
     }
 
-/**
+
     public function testCreateAction()
     {
         $client = static::createClient();
@@ -39,7 +39,7 @@ class DefaultControllerTest extends WebTestCase
         $this->assertContains('Andy', $crawler->filter('body > ul > li')->text());
         $this->assertContains('Test', $crawler->filter('body > ul > li')->text());
     }
-*/
+
     public function testUpdateAction()
     {
         $client = static::createClient();
