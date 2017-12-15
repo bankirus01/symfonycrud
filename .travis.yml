@@ -17,10 +17,12 @@ before_script:
   - bin/console doctrine:schema:update --force
   #- bin/console doctrine:fixtures:load -q
 
-test:
-  adapter: mysql2
-  database: ArticleTest
-  username: travis
-  encoding: utf8
+#test:
+ # adapter: mysql2
+ # database: ArticleTest
+ # username: travis
+ # encoding: utf8
 
 script: vendor/bin/phpunit
+
+dist: precise
