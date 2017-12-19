@@ -22,6 +22,5 @@ class ArticleData extends Fixture
             $manager->persist($Article);
             $manager->flush();
 
-
         }
 }
