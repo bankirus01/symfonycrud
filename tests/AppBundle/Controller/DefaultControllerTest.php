@@ -22,7 +22,7 @@ class DefaultControllerTest extends WebTestCase
         $client = static::createClient();
         $crawler = $client->request('GET', '/article/create');
         $Nametest = $crawler->filter('div#article > div > label')->text();
-        $this->assertContains('Name', $Nametest); //ok
+        $this->assertContains('Name', $Nametest);
         $descriptionTest = $crawler->filter('div#article > div > label')
             ->eq(1)
             ->text();
